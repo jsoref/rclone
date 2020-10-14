@@ -1,0 +1,43 @@
+# MD5
+"[0-9a-f]{32}"
+# sha-1
+"[0-9a-f]{40}"
+# sha256
+"[0-9a-f]{64}"
+sha256:[0-9a-f]{64}
+# ?
+"[0-9a-f]{128}"
+# Base64
+Base64 = "[a-zA-Z=;,/0-9+-]+"
+#
+oc:checksum>.*</oc:checksum
+# ??
+^\s+[0-9][0-9] \S*$
+# githubusercontent
+/[a-z-]+\.githubusercontent\.com/[-a-zA-Z0-9?&=_\/.]*
+# gist github
+/gist\.github\.com/[^/]+/[0-9a-f]+
+# hex digits including css/html color classes:
+(?:[\\0][xX]|\\u|[uU]\+|#|\%23)[0-9a-fA-FgGrR]{2,}[uU]?[lL]{0,2}\b
+# uuid:
+[{"'][0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}['"}]
+# URL escaped characters
+\%[0-9A-F]{2}
+# secrets
+ID": "[0-9a-zA-Z]+"
+ClientID\s*= ".*"
+"Encrypted" : "[0-9a-zA-Z]+"
+"EncryptedPath" : "[0-9a-zA-Z/]+"
+Key\s+= "\S+"
+Secret = "\S+"
+cryptPassword\d\s+= "[^"]+"
+"public_key": "\S+"
+"bitcoin:[^"]+"
+"Bearer [0-9a-zA-Z]+"
+# test field data
+"[^"]*?(?:/[^"]*|bin)":.*".*",$
+\s[0-9]: ".*",$
+# tests
+(?:in|out):\s*"[^"]*"
+# ignore long runs of a single character:
+\b([A-Za-z])\1{3,}\b
